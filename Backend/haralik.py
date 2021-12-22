@@ -5,10 +5,10 @@ import numpy as np
 import os
 import glob
 import mahotas as mt
-from sklearn.svm import LinearSVC
+#from sklearn.svm import LinearSVC
 import csv
 import time
-import pickle
+#import pickle
 
 tic = time.time()
 
@@ -22,12 +22,12 @@ def extract_features(image):
     return ht_mean
 
 # load the training dataset
-train_path  = "D:\\_Master MBD\\S3\\traitement des images\\Mini_Projet_Traitement_Images\\Backend\\dataset\\coil-100\\coil-100" #Enter the directory where all the images are stored
-train_names_all = os.listdir(train_path)
-train_names = [] 
+train_path  = "D:\\_Master MBD\\S3\\traitement des images\\Mini_Projet_Traitement_Images\\Backend\\dataset\\coil-100" #Enter the directory where all the images are stored
+train_names = os.listdir(train_path)
+# train_names = [] 
 
-for name in train_names_all:
-    train_names.append(name.split("_")[0])
+# for name in train_names_all:
+#     train_names.append(name.split("_")[0])
 
 #
 # empty list to hold feature vectors and train labels
@@ -40,7 +40,7 @@ cur_path = os.path.join(train_path, '*g')
 #cur_path = os.path.join(train_path, '*.ppm')
 cur_label = train_names
 i = 0
-with open('Haralick_BreaKHis_temp.csv','a+',newline='') as obj:
+with open('Haralick_BreaKHis_temp_png.csv','a+',newline='') as obj:
                 writer = csv.writer(obj)
                 # if i==0:
                 #         writer.writerow(['Haralick1','Haralick2','Haralick3','Haralick4','Haralick5','Haralick6','Haralick7','Haralick8','Haralick9',
