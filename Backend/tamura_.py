@@ -5,6 +5,7 @@ import numpy as np
 import os
 import glob
 import time
+import csv
 
 tic = time.time()
 
@@ -122,7 +123,7 @@ def roughness(fcrs, fcon):
 
         
 # load the training dataset
-train_path  = "D:\\_Master MBD\\S3\\traitement des images\\Mini_Projet_Traitement_Images\\Backend\\static"
+train_path  = "C:\\Users\\Probook\\Desktop\\Master SIM\\S3\\Analysis, Mining and Indexing in big multimedia systems\\searchEngine---backend\\Backend\\static\\dataset\\coil-100"
 train_names = os.listdir(train_path)
 
 # loop over the training dataset
@@ -130,22 +131,24 @@ cur_path = os.path.join(train_path, '*g')
 cur_label = train_names
 i = 0
 
-for file in glob.glob(cur_path):
-    
-    print('For image {} named {}:'.format(i+1,cur_label[i]))
-    img = cv2.imread(file)
-    img=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-    print('Shape of image is: {} '.format(img.shape))
-    fcrs = coarseness(img, 5)
-    print("coarseness: %f" % fcrs);
-    fcon = contrast(img)
-    print("contrast: %f" % fcon)
-    fdir= directionality(img)
-    print("directionality: %f" % fdir)
-    f_r=roughness(fcrs,fcon)
-    print("roughness: %f" % f_r)
-    print('\n\n')
-    i+=1
-
-toc = time.time()
-print("Computation time is {} minutes".format((toc-tic)/60))
+# with open('Tamura_BreaKHis_temp_png.csv','w',newline='') as obj:
+#     csv_writer = csv.writer(obj,delimiter=",")
+#     for file in glob.glob(cur_path):
+#         print('For image {} named {}:'.format(i+1,cur_label[i]))
+#         img = cv2.imread(file)
+#         img=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+#    	    # print('Shape of image is: {} '.format(img.shape))
+#         fcrs = coarseness(img, 5)
+#     	# print("coarseness: %f" % fcrs);
+#         fcon = contrast(img)
+#         #print("contrast: %f" % fcon)
+#         fdir= directionality(img)
+#         #print("directionality: %f" % fdir)
+#         f_r=roughness(fcrs,fcon)
+#         #print("roughness: %f" % f_r)
+        
+#         features = [cur_label[i],fcrs,fcon,fdir,f_r]
+#         csv_writer.writerow(features)
+#         obj.flush()
+#         i+=1
+#     obj.close()

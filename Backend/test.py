@@ -28,7 +28,7 @@ def calculeDistance(imageUploaded):
 
 	featuresNewImage = extract_features(gray)
 	featuresNewImage = [float(y) for y in featuresNewImage]
-	print(featuresNewImage)
+	# print(featuresNewImage)
 	result = {}
 	with open('Haralick_BreaKHis_temp_png.csv','r') as obj:
 		reader = csv.reader(obj)
@@ -42,7 +42,7 @@ def calculeDistance(imageUploaded):
 		
 	return result
 
-res = calculeDistance("D:\\_Master MBD\\S3\\traitement des images\\Mini_Projet_Traitement_Images\\Backend\\static\\obj1__0.png")
+res = calculeDistance("C:\\Users\\Probook\\Desktop\\Master SIM\\S3\\Analysis, Mining and Indexing in big multimedia systems\\searchEngine---backend\\Backend\\static\\obj1__0.png")
 sortedRes = {k: v for k, v in sorted(res.items(), key=lambda item: item[1])}
 # print(sortedRes["obj1__0.png"])
 

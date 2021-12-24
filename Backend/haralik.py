@@ -22,7 +22,7 @@ def extract_features(image):
     return ht_mean
 
 # load the training dataset
-train_path  = "D:\\_Master MBD\\S3\\traitement des images\\Mini_Projet_Traitement_Images\\Backend\\dataset\\coil-100" #Enter the directory where all the images are stored
+train_path  = "C:\\Users\\Probook\\Desktop\\Master SIM\\S3\\Analysis, Mining and Indexing in big multimedia systems\\searchEngine---backend\\Backend\\dataset\\coil-100" #Enter the directory where all the images are stored
 train_names = os.listdir(train_path)
 # train_names = [] 
 
@@ -40,7 +40,7 @@ cur_path = os.path.join(train_path, '*g')
 #cur_path = os.path.join(train_path, '*.ppm')
 cur_label = train_names
 i = 0
-with open('Haralick_BreaKHis_temp_png.csv','a+',newline='') as obj:
+with open('Haralick_BreaKHis_temp_png.csv','w',newline='') as obj:
                 writer = csv.writer(obj)
                 # if i==0:
                 #         writer.writerow(['Haralick1','Haralick2','Haralick3','Haralick4','Haralick5','Haralick6','Haralick7','Haralick8','Haralick9',
