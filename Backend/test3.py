@@ -40,7 +40,7 @@ def calculeDistance(imageUploaded):
             # print(feature)
             result[row[0]] = res
 
-            obj.close()    
+        obj.close()    
         
     return result
 
