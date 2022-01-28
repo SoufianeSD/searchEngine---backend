@@ -17,7 +17,6 @@ api = Api(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 app = Flask(__name__)
-app.config['DATA_FOLDER'] = DATA_FOLDER
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/uploader' , methods = ['GET' , 'POST'])
