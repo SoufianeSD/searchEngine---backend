@@ -5,7 +5,7 @@ from flask_cors import CORS
 import os
 from test3 import calculeDistanceNormalize
 from test3 import calculeDistance
-from Backend.OBJ_Similarity import SimilarityCheck
+from Backend.OBJ_Similarity import SimilarityCheck,SimilarityNormalizedCheck
 
 UPLOAD_FOLDER = 'D:\\_Master MBD\\S3\\traitement des images\\Mini_Projet_Traitement_Images_2021\\searchEngine---backend\\Backend\\static'
 DATA_FOLDER = 'Backend\dataset\coil-100'
@@ -58,7 +58,7 @@ def upload_Normalize_file():
         f = request.files['image']
         filename = secure_filename(f.filename)
         f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    res = SimilarityCheck("D:\\_Master MBD\\S3\\traitement des images\\Mini_Projet_Traitement_Images_2021\\searchEngine---backend\\Backend\\static\\"+filename,'Normalized_Feautures_For_Obj.csv')
+    res = SimilarityNormalizedCheck("D:\\_Master MBD\\S3\\traitement des images\\Mini_Projet_Traitement_Images_2021\\searchEngine---backend\\Backend\\static\\"+filename,'Normalized_Feautures_For_Obj.csv')
     sortedRes = {k: v for k, v in sorted(res.items(), key=lambda item: item[1])}
     result = list(sortedRes.keys())
     return "/".join(result[:12]), 201, {'Access-Control-Allow-Origin': '*'}
